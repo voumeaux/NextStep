@@ -14,4 +14,7 @@ Features
  How It Works
 Everything runs directly in your browser: 
 - You can **export** your journal to a local file and **import** it back anytime.  
-- No internet access or external APIs are required after loading the page.  
+- No internet access or external APIs are required after loading the page.
+
+ Link
+ - https://voumeaux.github.io/NextStep/
