@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NextStep</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+   <body>
+  <section>
+    <h1>Private Wellness Tracker</h1>
+    </section>
+     <section>
+    <h3>📅 Reclaim control, one day at a time. </h3>
+    <button onclick="UpdateDaily(); checkbadges(); streakcheck(); letter(); ">Daily Check-In</button>
+    <button onclick="RemoveDaily()">Remove Check-In</button>
+    <button onclick="sendPositiveMessage()" >Need a Boost?</button>
+    <button onclick="sendPositiveMessage(); relapseButton(); alert('its okay to mess up, but remember to get back on track.')">Relapse</button>
+    <p id="streak">Days Checked In: </p>
+    <p id="relapselast">Last Relapse: </p>
+    
+     <h2>📂 Export Progress</h2>
+    <button onclick="exportUserData()">Export Data</button>
+    
+    <h2>📂 Import Progress</h2>
+    <input type="file" accept=".txt" id="importFile" />
+    <button onclick="importUserData(); updateUI();">Import</button>
+  </section>
+  
+    <section>
+    <h2> 👤 Self Help</h2>
+    
+    
+    <h3> 📝 Daily Journal</h3>
+    <label for = "DailyJournal" id="LabelDaily"></label>
+    <textarea name="DailyJournal" id="Daily" rows="4" cols="50" placeholder="Write your thoughts here..."></textarea>
+    <button onclick="saveJournal(); disableEditJourn(); sendPositiveMessage();" id="savejourn" >Save</button>
+    <button onclick="enableEditJourn()">Edit</button>
+    <button onclick="prevEntry()">Previous Entry</button> 
+  <hr>
+    <div class="mood-selector"></div>
+    <h3>How am I feeling...🤔?</h3> 
+   
+  <h4>You selected: <span id="selectedMood">None</span></h4>
+  <button onclick="setMood('meh'), alert('Its good to understand why you feel a certain way, ponder this')">😐 Meh</button>
+  <button onclick="setMood('happy'), alert('Its good to understand why you feel a certain way, ponder this')">😊 Happy</button>
+  <button onclick="setMood('sad'), alert('Its good to understand why you feel a certain way, ponder this')">😢 Sad</button>
+  <button onclick="setMood('angry'), alert('Its good to understand why you feel a certain way, ponder this')">😠 Angry</button>
+  
+</div>
+<script>
+  function setMood(moodType) {
+    window.mood = {
+      meh: false,
+      happy: false,
+      sad: false,
+      angry: false
+    };
+
+    // Set selected mood to true
+    window.mood[moodType] = true;
+
+    // Display selected mood
+    document.getElementById("selectedMood").textContent = moodType.charAt(0).toUpperCase() + moodType.slice(1);
+  }
+
+  window.mood = {
+    meh: false,
+    happy: false,
+    sad: false,
+    angry: false
+  };
+</script>
+    <hr>
+   <section>
+  <h3>⭐️ Personal Goals</h3>
+  <label for="goalInput">Add a new goal:</label>
+  <input type="text" id="goalInput" placeholder="Type your goal here..." />
+  <button onclick="addGoal()">Add Goal</button>
+
+  <ul id="goalList"></ul>
+</section>
+    
+   <h2>🏆 Victory Wall</h2>
+  <h3>Your Badges! 🎖️ </h3>
+  <div id="badgeDisplay"></div>
+
+
+     <h2> Victory Letter</h2>
+    <p> Reach 90 days to see your letter</p> <!-- Make this into set goal for no relapse. -->
+    <label for = "VictoryJournal" id="LabelVictory"></label>
+    <textarea name="VictoryJournal" id="victor" rows="4" cols="50" placeholder="Write your thoughts here..."></textarea>
+    <button onclick="saveVictory(); disableEditVic(); sendPositiveMessage(); " id="savevic" >Save</button>
+    <button onclick="enableEditVic()">Edit</button>
+  </section>
+
+  <section>
+    <h2>Communities</h2> <!-- Finish this and you can release!-->
+    <div class="custom-box">
+
+  <p>If you're struggling with porn addiction or any other form of addiction, you're not alone. These communities offer support, resources, and connection:</p>
+  <b><ul>
+    <li><a href="https://www.reddit.com/r/pornfree" target="_blank" rel="noopener">Reddit: r/pornfree</a> – A supportive community focused on quitting porn and reclaiming control.</li>
+    <li><a href="https://www.reddit.com/r/NoFap" target="_blank" rel="noopener">Reddit: r/NoFap</a> – A large community dedicated to overcoming porn and masturbation addiction.</li>
+    <li><a href="https://www.rebootnation.org/" target="_blank" rel="noopener">Reboot Nation</a> – Education and peer support for those recovering from porn addiction.</li>
+    <li><a href="https://www.yourbrainrebalanced.com/" target="_blank" rel="noopener">Your Brain Rebalanced</a> – Forums and tools for rebooting your brain and breaking free from porn.</li>
+    <li><a href="https://www.smartrecovery.org/" target="_blank" rel="noopener">SMART Recovery</a> – Science-based support for all types of addiction, including online meetings.</li>
+    <li><a href="https://www.12step.org/" target="_blank" rel="noopener">12Step.org</a> – Information and links to 12-step programs for various addictions.</li>
+    <li><a href="https://www.sa.org/" target="_blank" rel="noopener">Sexaholics Anonymous (SA)</a> – A 12-step fellowship for those seeking recovery from sexual addiction.</li>
+    <li><a href="https://www.reddit.com/r/addiction" target="_blank" rel="noopener">Reddit: r/addiction</a> – A general support forum for people facing all types of addiction.</li>
+  </ul>
+  <p></p>
+  <p><em>Reaching out is a sign of strength. You're not alone, and help is available.</em></p></b>
+</div>
+
+  </section>
+
+  <section>
+     <h3>About Me</h3>
+  <b><p> NextStep was created as a free and accessible tool for individuals (both men and women) who are struggling with porn addiction. Like many others, I sought help through digital platforms and downloaded an app, only to discover that meaningful content was locked behind a paywall. That experience left me feeling discouraged.
+
+As a programmer, I realized I had the skills to change that. So I took it upon myself to build something that anyone in need could use without financial barriers. NextStep is my way of giving back a resource designed to empower people on their journey toward recovery and self discipline.
+
+This release is a Minimum Viable Project (MVP), meaning it’s just the start of something great. I fully intend to expand and refine NextStep based on feedback and the evolving needs of its users.
+
+If you have suggestions, questions, or concerns, I welcome your input. Please feel free to contact me directly at <b>Jelbacc@gmail.com</b>.
+  </p></b>
+  </section>
+  <script src="script.js"></script>
+  </body>
+</html>

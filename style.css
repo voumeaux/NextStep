@@ -1,0 +1,315 @@
+/* ============================= */
+/*        Base Reset            */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #121212;
+  color: #f5f5f5;
+  padding: 40px;
+  line-height: 1.7;
+}
+
+/* ============================= */
+/*        Layout Containers     */
+/* ============================= */
+section {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+section:hover {
+  box-shadow: 0 12px 32px rgba(106, 90, 205, 0.3); /* Slate Blue glow */
+}
+
+/* ============================= */
+/*        Typography            */
+/* ============================= */
+h1, h2, h3 {
+  color: #6A5ACD; /* Slate Blue */
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 2em;
+  border-bottom: 2px solid #008080; /* Teal */
+  padding-bottom: 8px;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-top: 30px;
+}
+
+p, label {
+  font-size: 1.05em;
+  margin-bottom: 12px;
+  color: #e0e0e0;
+}
+
+/* ============================= */
+/*        Buttons               */
+/* ============================= */
+button {
+  background: linear-gradient(135deg, #008080, #6A5ACD);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  margin: 8px 6px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #006666, #5a4ac0);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* ============================= */
+/*        Textareas             */
+/* ============================= */
+textarea {
+  width: 100%;
+  max-width: 800px;
+  padding: 14px;
+  margin: 10px 0 20px;
+  border-radius: 10px;
+  border: 1px solid #008080;
+  font-size: 1em;
+  background-color: #2a2a2a;
+  color: #fff;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+  border-color: #6A5ACD;
+  outline: none;
+}
+
+/* ============================= */
+/*        File Input            */
+/* ============================= */
+input[type="file"] {
+  margin: 10px 0;
+  font-size: 1em;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #008080;
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+/* ============================= */
+/*        Entries List          */
+/* ============================= */
+ul#entries {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+ul#entries li {
+  margin-bottom: 8px;
+  color: #f5f5f5;
+}
+
+/* ============================= */
+/*        About Section         */
+/* ============================= */
+#about {
+  font-size: 1em;
+  color: #ccc;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+/* ============================= */
+/*        Form Labels           */
+/* ============================= */
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* ============================= */
+/*        Export/Import         */
+/* ============================= */
+#importFile {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#importButton {
+  background: linear-gradient(135deg, #008080, #6A5ACD);
+}
+
+#importButton:hover {
+  background: linear-gradient(135deg, #006666, #5a4ac0);
+}
+
+/* ============================= */
+/*        Journal Sections      */
+/* ============================= */
+#Daily, #Victory {
+  min-height: 120px;
+}
+
+#LabelDaily, #LabelVictory {
+  font-size: 1.1em;
+  color: #6A5ACD;
+}
+
+/* ============================= */
+/*        Streak & Relapse      */
+/* ============================= */
+#streak, #relapselast, #targetdate, #goal {
+  font-weight: 600;
+  color: #008080;
+  margin-top: 10px;
+}
+
+/* ============================= */
+/*        Responsive Design     */
+/* ============================= */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  section {
+    padding: 20px;
+  }
+}
+
+/* ============================= */
+/*        Animations            */
+/* ============================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* ============================= */
+/*        Utility Classes       */
+/* ============================= */
+.center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.shadow {
+  box-shadow: 0 4px 12px rgba(106, 90, 205, 0.2);
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+#badgeDisplay {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-left: 4px solid #6A5ACD;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.badge {
+  font-size: 1.2em;
+  color: #f5f5f5;
+  margin-bottom: 10px;
+  display: block;
+}
+    
+hr {
+  background-color: #008080; 
+  height: 2px; 
+  border: none;
+  }
+  /* ============================= */
+/*        Custom Styled Div      */
+/* ============================= */
+
+#goalInput {
+  width: 100%;
+  max-width: 600px;
+  padding: 12px 16px;
+  margin: 12px 0 20px;
+  border: 1px solid #008080; /* Teal border */
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+  font-size: 1em;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#goalInput:focus {
+  border-color: #6A5ACD; /* Slate Blue focus */
+  outline: none;
+  box-shadow: 0 0 6px rgba(106, 90, 205, 0.5);
+}
